@@ -1,5 +1,9 @@
 # ⚡ MyBash — Server Automation & Hardening Scripts
 
+<p align="center">
+  <img src="assets/mybash_banner.png" alt="MyBash Banner" width="100%">
+</p>
+
 [![Security Scan](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml/badge.svg)](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-1.0.0--Mondstadt-orange.svg)](#)
