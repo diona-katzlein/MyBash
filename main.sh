@@ -4,7 +4,7 @@
 # MyBash - Main Launcher & Remote Script Aggregator
 # Author  : IsekaiID (https://github.com/diona-katzlein)
 # Base URL: https://github.com/diona-katzlein/MyBash
-# Version : 1.0.0 - Mondstadt
+# Version : 1.0.8 - Mondstadt
 # License : MIT
 # ============================================================
 
@@ -51,7 +51,7 @@ show_banner() {
     echo -e "${BLUE}======================================================${NC}"
     echo -e "  ${BOLD}MyBash: Hardening & Application Auto-Installer${NC}"
     echo -e "  Author    : IsekaiID (https://github.com/diona-katzlein)"
-    echo -e "  Version   : 1.0.0 - Mondstadt (MIT License)"
+    echo -e "  Version   : 1.0.8 - Mondstadt (MIT License)"
     echo -e "  System OS : ${GREEN}${OS_FAMILY}${NC}"
     echo -e "${BLUE}======================================================${NC}\n"
 }

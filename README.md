@@ -6,7 +6,7 @@
 
 [![Security Scan](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml/badge.svg)](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-1.0.0--Mondstadt-orange.svg)](#)
+[![Version](https://img.shields.io/badge/Version-1.0.8--Mondstadt-orange.svg)](#)
 [![Bash Shell](https://img.shields.io/badge/Shell-Bash-4EAA25.svg?logo=gnu-bash&logoColor=white)](#)
 
 Kumpulan Script Bash interaktif untuk mempermudah instalasi aplikasi, pengelolaan web server, dan melakukan hardening keamanan tingkat tinggi pada server berbasis **Debian/Ubuntu** serta **RHEL/AlmaLinux/Rocky Linux/Fedora Server**.
@@ -73,5 +73,5 @@ Untuk memastikan keamanan server Anda, repositori ini menggunakan **GitHub Actio
 
 - **Author**: [IsekaiID](https://github.com/diona-katzlein)
 - **Base URL**: [https://github.com/diona-katzlein/MyBash](https://github.com/diona-katzlein/MyBash)
-- **Version**: `1.0.0 - Mondstadt`
+- **Version**: `1.0.8 - Mondstadt`
 - **Lisensi**: Open Source - [MIT License](LICENSE)
