@@ -6,7 +6,7 @@
 
 [![Security Scan](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml/badge.svg)](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-1.0.8--Mondstadt-orange.svg)](#)
+[![Version](https://img.shields.io/badge/Version-1.0.10--Mondstadt-orange.svg)](#)
 [![Bash Shell](https://img.shields.io/badge/Shell-Bash-4EAA25.svg?logo=gnu-bash&logoColor=white)](#)
 
 Kumpulan Script Bash interaktif untuk mempermudah instalasi aplikasi, pengelolaan web server, dan melakukan hardening keamanan tingkat tinggi pada server berbasis **Debian/Ubuntu** serta **RHEL/AlmaLinux/Rocky Linux/Fedora Server**.
@@ -57,6 +57,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/diona-katzlein/MyBa
 | 🐘 **PHP** | `v1-B` (Simple) | [php-installer.sh](PHP/v1-B/php-installer.sh) | PHP-FPM install instan dan default switcher. | [Docs 📖](PHP/v1-B/README.md) |
 | 🔑 **SSH** | `v1-A` (Advanced) | [ssh-v1-a.sh](SSH/ssh-v1-a.sh) | SSH Hardening (Port, Cipher/Kex, Key Auth, Fail2Ban). | [Docs 📖](SSH/README.md) |
 | 🔑 **SSH** | `v1-B` (Simple)   | [ssh-v1-b.sh](SSH/ssh-v1-b.sh) | SSH Hardening non-interaktif cepat & kuat. | [Docs 📖](SSH/README.md) |
+| ☁️ **CLOUDFLARE** | `v2.0` (A)      | [cf-manager.sh](CLOUDFLARE/CLOUDFLARE-MANAGER-A/cf-manager.sh) | DNS Records & Zero Trust Tunnel Manager. | [Docs 📖](CLOUDFLARE/CLOUDFLARE-MANAGER-A/README.md) |
 
 ---
 
@@ -73,5 +74,5 @@ Untuk memastikan keamanan server Anda, repositori ini menggunakan **GitHub Actio
 
 - **Author**: [IsekaiID](https://github.com/diona-katzlein)
 - **Base URL**: [https://github.com/diona-katzlein/MyBash](https://github.com/diona-katzlein/MyBash)
-- **Version**: `1.0.8 - Mondstadt`
+- **Version**: `1.0.10 - Mondstadt`
 - **Lisensi**: Open Source - [MIT License](LICENSE)

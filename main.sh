@@ -4,7 +4,7 @@
 # MyBash - Main Launcher & Remote Script Aggregator
 # Author  : IsekaiID (https://github.com/diona-katzlein)
 # Base URL: https://github.com/diona-katzlein/MyBash
-# Version : 1.0.8 - Mondstadt
+# Version : 1.0.10 - Mondstadt
 # License : MIT
 # ============================================================
 
@@ -51,7 +51,7 @@ show_banner() {
     echo -e "${BLUE}======================================================${NC}"
     echo -e "  ${BOLD}MyBash: Hardening & Application Auto-Installer${NC}"
     echo -e "  Author    : IsekaiID (https://github.com/diona-katzlein)"
-    echo -e "  Version   : 1.0.8 - Mondstadt (MIT License)"
+    echo -e "  Version   : 1.0.10 - Mondstadt (MIT License)"
     echo -e "  System OS : ${GREEN}${OS_FAMILY}${NC}"
     echo -e "${BLUE}======================================================${NC}\n"
 }
@@ -112,9 +112,10 @@ main_menu() {
         echo -e " [2] NGINX Web Server (Install & Hardening)"
         echo -e " [3] PHP Manager (Install, Config & Switching)"
         echo -e " [4] SSH Server (Hardening & Security Config)"
+        echo -e " [5] CLOUDFLARE Manager (DNS & Zero Trust Tunnel)"
         echo -e " [0] Keluar / Exit"
         echo
-        read -r -p "Pilihan Anda [0-4]: " main_choice
+        read -r -p "Pilihan Anda [0-5]: " main_choice
         
         case "$main_choice" in
             1)
@@ -128,6 +129,9 @@ main_menu() {
                 ;;
             4)
                 ssh_menu
+                ;;
+            5)
+                cloudflare_menu
                 ;;
             0)
                 echo -e "\n${GREEN}Terima kasih telah menggunakan MyBash! Sampai jumpa.${NC}"
@@ -258,6 +262,31 @@ ssh_menu() {
                 ;;
             2)
                 run_script "SSH" "" "ssh-v1-b.sh"
+                break
+                ;;
+            0)
+                break
+                ;;
+            *)
+                echo -e "\n${RED}[ERROR] Pilihan tidak valid!${NC}"
+                sleep 1
+                ;;
+        esac
+    done
+}
+
+cloudflare_menu() {
+    while true; do
+        show_banner
+        echo -e "${BOLD}Cloudflare Manager Menu:${NC}"
+        echo -e " [1] Cloudflare DNS & Zero Trust Tunnel Manager (cf-manager.sh)"
+        echo -e " [0] Kembali ke Menu Utama"
+        echo
+        read -r -p "Pilihan Anda [0-1]: " choice
+        
+        case "$choice" in
+            1)
+                run_script "CLOUDFLARE" "CLOUDFLARE-MANAGER-A" "cf-manager.sh"
                 break
                 ;;
             0)
