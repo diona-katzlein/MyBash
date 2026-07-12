@@ -52,10 +52,17 @@ run_script() {
     local version="$2"
     local script_name="$3"
     
-    local local_path="./${category}/${version}/${script_name}"
-    local remote_url="${RAW_BASE_URL}/${category}/${version}/${script_name}"
-    
-    echo -e "${YELLOW}[INFO] Menyiapkan script: ${category} (${version}) -> ${script_name}...${NC}"
+    local local_path
+    local remote_url
+    if [[ -n "$version" ]]; then
+        local_path="./${category}/${version}/${script_name}"
+        remote_url="${RAW_BASE_URL}/${category}/${version}/${script_name}"
+        echo -e "${YELLOW}[INFO] Menyiapkan script: ${category} (${version}) -> ${script_name}...${NC}"
+    else
+        local_path="./${category}/${script_name}"
+        remote_url="${RAW_BASE_URL}/${category}/${script_name}"
+        echo -e "${YELLOW}[INFO] Menyiapkan script: ${category} -> ${script_name}...${NC}"
+    fi
     
     if [[ -f "$local_path" ]]; then
         echo -e "${GREEN}[OK] Menggunakan script lokal: ${local_path}${NC}"
@@ -94,9 +101,10 @@ main_menu() {
         echo -e " [1] APACHE Web Server (Install & Management)"
         echo -e " [2] NGINX Web Server (Install & Hardening)"
         echo -e " [3] PHP Manager (Install, Config & Switching)"
+        echo -e " [4] SSH Server (Hardening & Security Config)"
         echo -e " [0] Keluar / Exit"
         echo
-        read -r -p "Pilihan Anda [0-3]: " main_choice
+        read -r -p "Pilihan Anda [0-4]: " main_choice
         
         case "$main_choice" in
             1)
@@ -107,6 +115,9 @@ main_menu() {
                 ;;
             3)
                 php_menu
+                ;;
+            4)
+                ssh_menu
                 ;;
             0)
                 echo -e "\n${GREEN}Terima kasih telah menggunakan MyBash! Sampai jumpa.${NC}"
@@ -207,6 +218,31 @@ php_menu() {
                 ;;
             2)
                 run_script "PHP" "v1-B" "php-installer.sh"
+                break
+                ;;
+            0)
+                break
+                ;;
+            *)
+                echo -e "\n${RED}[ERROR] Pilihan tidak valid!${NC}"
+                sleep 1
+                ;;
+        esac
+    done
+}
+
+ssh_menu() {
+    while true; do
+        show_banner
+        echo -e "${BOLD}SSH Server Hardening Menu:${NC}"
+        echo -e " [1] SSH Hardening (Fitur Lengkap: Port, Crypto, Password/Key Auth, Fail2Ban)"
+        echo -e " [0] Kembali ke Menu Utama"
+        echo
+        read -r -p "Pilihan Anda [0-1]: " choice
+        
+        case "$choice" in
+            1)
+                run_script "SSH" "" "ssh-v1-a.sh"
                 break
                 ;;
             0)
