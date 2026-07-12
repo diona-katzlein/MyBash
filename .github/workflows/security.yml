@@ -1,0 +1,24 @@
+name: Script Security Scan
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    name: ShellCheck Linter & Security Review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: koalaman/shellcheck-action@v2
+        with:
+          path: "."
+          pattern: "*.sh"
+          severity: "warning"
+          check_together: 'yes'
