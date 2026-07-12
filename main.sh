@@ -235,14 +235,19 @@ ssh_menu() {
     while true; do
         show_banner
         echo -e "${BOLD}SSH Server Hardening Menu:${NC}"
-        echo -e " [1] SSH Hardening (Fitur Lengkap: Port, Crypto, Password/Key Auth, Fail2Ban)"
+        echo -e " [1] SSH Hardening v1-A (Fitur Lengkap: Port, Crypto, Password/Key Auth, Fail2Ban)"
+        echo -e " [2] SSH Hardening v1-B (Fitur Simple: Non-interaktif, Auto-Hardening)"
         echo -e " [0] Kembali ke Menu Utama"
         echo
-        read -r -p "Pilihan Anda [0-1]: " choice
+        read -r -p "Pilihan Anda [0-2]: " choice
         
         case "$choice" in
             1)
                 run_script "SSH" "" "ssh-v1-a.sh"
+                break
+                ;;
+            2)
+                run_script "SSH" "" "ssh-v1-b.sh"
                 break
                 ;;
             0)

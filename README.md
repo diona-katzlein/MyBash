@@ -52,6 +52,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/diona-katzlein/MyBa
 | 🐘 **PHP** | `v1-A` (Advanced) | [php-installer.sh](PHP/v1-A/php-installer.sh) | Multi-Version PHP (7.4 - 8.3) switcher global/VHost. | [Docs 📖](PHP/v1-A/README.md) |
 | 🐘 **PHP** | `v1-B` (Simple) | [php-installer.sh](PHP/v1-B/php-installer.sh) | PHP-FPM install instan dan default switcher. | [Docs 📖](PHP/v1-B/README.md) |
 | 🔑 **SSH** | `v1-A` (Advanced) | [ssh-v1-a.sh](SSH/ssh-v1-a.sh) | SSH Hardening (Port, Cipher/Kex, Key Auth, Fail2Ban). | [Docs 📖](SSH/README.md) |
+| 🔑 **SSH** | `v1-B` (Simple)   | [ssh-v1-b.sh](SSH/ssh-v1-b.sh) | SSH Hardening non-interaktif cepat & kuat. | [Docs 📖](SSH/README.md) |
 
 ---
 

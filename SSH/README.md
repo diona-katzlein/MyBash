@@ -1,34 +1,43 @@
-# SSH Server Hardening (v1-A)
+# SSH Server Hardening Modul
 
-Script Bash komprehensif interaktif untuk meningkatkan keamanan konfigurasi server SSH Daemon (sshd) pada distro Linux Debian/Ubuntu.
+Kumpulan Script Bash untuk melakukan hardening (pengamanan) konfigurasi SSH Daemon (sshd) pada distro Linux Debian/Ubuntu.
 
-## 🚀 Fitur Utama
-* **Ubah Port SSH** - Menghindari serangan bruteforce automated bot dengan mengganti port SSH default 22 ke custom port (default: 2222).
-* **Nonaktifkan Root Login** - Memblokir user root login langsung via SSH (mewajibkan user biasa dengan privilege sudo).
-* **Nonaktifkan Password Authentication** - Mematikan authentikasi password tradisional (mewajibkan SSH Key Pair).
-* **Security Cryptography Tuning** - Hanya menggunakan cipher, key exchange, dan MACs yang kuat (Ed25519, AES-256, chacha20, dll).
-* **Session & Timeout Control** - Mengatur batas timeout idle session, pembatasan jumlah kegagalan login (MaxAuthTries), dan jumlah concurrent session.
-* **Fail2Ban Integration** - Auto install dan konfigurasi proteksi Fail2Ban untuk memblokir IP penyerang bruteforce.
-* **Banner Warning** - Menampilkan banner peringatan hukum saat login ke SSH.
-* **Backup & Validasi** - Melakukan backup otomatis ke `/root/ssh_backup` sebelum menerapkan perubahan, dan memvalidasi konfigurasi dengan `sshd -t` sebelum merestart service.
+## ⚠️ Peringatan Sangat Penting Sebelum Menjalankan Script
+1. **Pastikan Anda sudah mengatur SSH Key (Public/Private Key)** dan bisa login menggunakan key tersebut.
+2. **JANGAN tutup terminal/SSH session Anda** setelah menjalankan script ini. Buka terminal baru dan coba login untuk memastikan konfigurasi berhasil dan Anda tidak terkunci (locked out).
+3. Kedua script ini akan **mematikan login menggunakan Password** dan hanya mengizinkan **SSH Key**.
 
-## 📋 Prasyarat
-- **Sistem Operasi**: Ubuntu / Debian.
-- **Hak Akses**: Pengguna harus memiliki akses `root` atau `sudo`.
+---
 
-## 🛠️ Cara Penggunaan
+## 🚀 Fitur & Pilihan Versi
 
-Anda dapat menjalankan script ini langsung menggunakan Main Launcher `main.sh` di root directory, atau secara standalone:
+### 1. SSH Hardening (Advanced v1-A)
+Script komprehensif interaktif yang menyediakan opsi modular penuh.
+* **Ubah Port SSH** ke custom port pilihan Anda.
+* **Generate SSH Host Key Baru** menggunakan algoritma modern.
+* **Integrasi Fail2Ban** otomatis untuk memblokir IP penyerang bruteforce.
+* **Setup SSH Key untuk User** secara otomatis dari menu.
+* **Semua fitur di v1-B** (nonaktifkan root login, password auth, dll).
 
+**Cara Penggunaan:**
 ```bash
 chmod +x ssh-v1-a.sh
 sudo ./ssh-v1-a.sh
+# Mode otomatis (tanpa interaktif):
+sudo ./ssh-v1-a.sh --auto
 ```
 
-### Opsi Non-Interaktif (Otomatis)
-Jalankan script langsung dengan konfigurasi hardening default tanpa interaksi user:
+### 2. SSH Hardening (Simple v1-B)
+Script cepat, efisien, dan non-interaktif yang langsung mengamankan parameter inti SSH.
+* **Disable Root Login** langsung tanpa input tambahan.
+* **Disable Password Auth & Challenge Response** (wajib SSH Key).
+* **Strong Cryptography** (hanya mengaktifkan Cipher & MACs modern).
+* **Auto Backup & Validation** konfigurasi sebelum restart.
+
+**Cara Penggunaan:**
 ```bash
-sudo ./ssh-v1-a.sh --auto
+chmod +x ssh-v1-b.sh
+sudo ./ssh-v1-b.sh
 ```
 
 ---
