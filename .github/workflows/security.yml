@@ -15,10 +15,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
       - name: Run ShellCheck
-        uses: koalaman/shellcheck-action@v2
-        with:
-          path: "."
-          pattern: "*.sh"
-          severity: "warning"
-          check_together: 'yes'
+        run: |
+          find . -name "*.sh" -exec shellcheck --severity=warning {} +
