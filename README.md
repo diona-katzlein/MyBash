@@ -9,7 +9,7 @@
 [![Version](https://img.shields.io/badge/Version-1.0.0--Mondstadt-orange.svg)](#)
 [![Bash Shell](https://img.shields.io/badge/Shell-Bash-4EAA25.svg?logo=gnu-bash&logoColor=white)](#)
 
-Kumpulan Script Bash interaktif untuk mempermudah instalasi aplikasi, pengelolaan web server, dan melakukan hardening keamanan tingkat tinggi pada server berbasis **Debian/Ubuntu**.
+Kumpulan Script Bash interaktif untuk mempermudah instalasi aplikasi, pengelolaan web server, dan melakukan hardening keamanan tingkat tinggi pada server berbasis **Debian/Ubuntu** serta **RHEL/AlmaLinux/Rocky Linux/Fedora Server**.
 
 ---
 
