@@ -4,7 +4,7 @@
 # MyBash - Main Launcher & Remote Script Aggregator
 # Author  : IsekaiID (https://github.com/diona-katzlein)
 # Base URL: https://github.com/diona-katzlein/MyBash
-# Version : 1.0.10 - Mondstadt
+# Version : 1.0.11 - Mondstadt
 # License : MIT
 # ============================================================
 
@@ -51,7 +51,7 @@ show_banner() {
     echo -e "${BLUE}======================================================${NC}"
     echo -e "  ${BOLD}MyBash: Hardening & Application Auto-Installer${NC}"
     echo -e "  Author    : IsekaiID (https://github.com/diona-katzlein)"
-    echo -e "  Version   : 1.0.10 - Mondstadt (MIT License)"
+    echo -e "  Version   : 1.0.11 - Mondstadt (MIT License)"
     echo -e "  System OS : ${GREEN}${OS_FAMILY}${NC}"
     echo -e "${BLUE}======================================================${NC}\n"
 }
@@ -279,14 +279,19 @@ cloudflare_menu() {
     while true; do
         show_banner
         echo -e "${BOLD}Cloudflare Manager Menu:${NC}"
-        echo -e " [1] Cloudflare DNS & Zero Trust Tunnel Manager (cf-manager.sh)"
+        echo -e " [1] Cloudflare DNS & Tunnel Manager v2.0 (Advanced A)"
+        echo -e " [2] Cloudflare DNS & Tunnel Manager (Simple B)"
         echo -e " [0] Kembali ke Menu Utama"
         echo
-        read -r -p "Pilihan Anda [0-1]: " choice
+        read -r -p "Pilihan Anda [0-2]: " choice
         
         case "$choice" in
             1)
                 run_script "CLOUDFLARE" "CLOUDFLARE-MANAGER-A" "cf-manager.sh"
+                break
+                ;;
+            2)
+                run_script "CLOUDFLARE" "CLOUDFLARE-MANAGER-B" "cf-manager.sh"
                 break
                 ;;
             0)
