@@ -1201,7 +1201,6 @@ while true; do
     echo -e " 6) Tambah App ke Tunnel    13) Edit Konfigurasi (config.env)"
     echo -e " 7) Daftar Route Tunnel     0) Keluar"
     separator
-    local menu_choice
     read -r -p "Pilihan Anda [0-13]: " menu_choice
 
     case "$menu_choice" in
