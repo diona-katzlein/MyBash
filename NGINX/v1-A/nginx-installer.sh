@@ -3,7 +3,7 @@
 # ============================================================
 # Script: nginx-install-hardening.sh
 # Description: Install Nginx Latest Version + Security Hardening
-# Author: Security Hardening Script
+# Author: IsekaiID (https://github.com/diona-katzlein)
 # Version: 1.0
 # Tested: Ubuntu 20.04/22.04, Debian 10/11, CentOS 7/8
 # ============================================================

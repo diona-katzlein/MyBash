@@ -2,7 +2,7 @@
 
 # ============================================================
 # NGINX VHost Manager - Advanced Configuration Tool
-# Author: NGINX VHost Manager
+# Author: IsekaiID (https://github.com/diona-katzlein)
 # Version: 2.0
 # ============================================================
 

@@ -4,7 +4,7 @@
 # Apache Web Server Setup & Management Script
 # Support: Laravel/CI/Symfony/Yii, Node.js/Python/Go,
 #          WordPress/Joomla, Reverse Proxy, PHP Switch
-# Author  : System Administrator
+# Author  : IsekaiID (https://github.com/diona-katzlein)
 # Version : 2.0
 # ============================================================
 
