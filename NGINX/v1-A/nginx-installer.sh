@@ -175,7 +175,7 @@ install_nginx() {
         ubuntu|debian)
             install_nginx_ubuntu
             ;;
-        centos|rhel|rocky|almalinux)
+        centos|rhel|rocky|almalinux|fedora)
             install_nginx_centos
             ;;
         *)
@@ -916,7 +916,7 @@ configure_firewall() {
             log_success "UFW berhasil dikonfigurasi"
             ;;
 
-        centos|rhel|rocky|almalinux)
+        centos|rhel|rocky|almalinux|fedora)
             log_info "Konfigurasi Firewalld..."
             systemctl start firewalld
             systemctl enable firewalld
@@ -973,7 +973,7 @@ configure_fail2ban() {
         ubuntu|debian)
             apt-get install -y fail2ban 2>&1 | tee -a "$SCRIPT_LOG"
             ;;
-        centos|rhel|rocky|almalinux)
+        centos|rhel|rocky|almalinux|fedora)
             yum install -y epel-release 2>&1 | tee -a "$SCRIPT_LOG"
             yum install -y fail2ban 2>&1 | tee -a "$SCRIPT_LOG"
             ;;
@@ -1109,7 +1109,7 @@ security_audit() {
                 echo -e "${GREEN}✓${NC} Firewall (UFW): Active" || \
                 echo -e "${RED}✗${NC} Firewall (UFW): Inactive"
             ;;
-        centos|rhel|rocky|almalinux)
+        centos|rhel|rocky|almalinux|fedora)
             if systemctl is-active --quiet firewalld; then
                 echo -e "${GREEN}✓${NC} Firewall (firewalld): Active"
             else

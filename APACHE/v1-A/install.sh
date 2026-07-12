@@ -54,11 +54,13 @@ check_root() {
 }
 
 check_os() {
-    if [[ ! -f /etc/debian_version ]] && [[ ! -f /etc/ubuntu_release ]]; then
-        if ! grep -qi "debian\|ubuntu" /etc/os-release 2>/dev/null; then
-            error "Script ini hanya support Debian/Ubuntu!"
-            exit 1
-        fi
+    if [[ -f /etc/debian_version ]] || [[ -f /etc/ubuntu_release ]] || grep -qi "debian\|ubuntu" /etc/os-release 2>/dev/null; then
+        OS_FAMILY="debian"
+    elif [[ -f /etc/redhat-release ]] || [[ -f /etc/system-release ]] || grep -qi "rhel\|fedora\|centos\|alma\|rocky" /etc/os-release 2>/dev/null; then
+        OS_FAMILY="rhel"
+    else
+        error "Script ini hanya support Debian/Ubuntu dan RHEL-family (Alma/Rocky/Fedora/CentOS)!"
+        exit 1
     fi
 }
 

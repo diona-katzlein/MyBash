@@ -93,8 +93,12 @@ check_root() {
 }
 
 check_os() {
-    if [[ ! -f /etc/debian_version ]] && [[ ! -f /etc/lsb-release ]]; then
-        print_error "Script ini hanya untuk Ubuntu/Debian!"
+    if [[ -f /etc/debian_version ]] || [[ -f /etc/lsb-release ]] || grep -qi "debian\|ubuntu" /etc/os-release 2>/dev/null; then
+        OS_FAMILY="debian"
+    elif [[ -f /etc/redhat-release ]] || [[ -f /etc/system-release ]] || grep -qi "rhel\|fedora\|centos\|alma\|rocky" /etc/os-release 2>/dev/null; then
+        OS_FAMILY="rhel"
+    else
+        print_error "Script ini hanya support Debian/Ubuntu dan RHEL-family (Alma/Rocky/Fedora/CentOS)!"
         exit 1
     fi
 }

@@ -21,6 +21,15 @@ BOLD='\033[1m'
 RAW_BASE_URL="https://raw.githubusercontent.com/diona-katzlein/MyBash/main"
 
 # Check root privilege
+# Detect OS Family
+OS_FAMILY="Unknown OS"
+if [[ -f /etc/debian_version ]] || [[ -f /etc/ubuntu_release ]] || grep -qi "debian\|ubuntu" /etc/os-release 2>/dev/null; then
+    OS_FAMILY="Debian/Ubuntu"
+elif [[ -f /etc/redhat-release ]] || [[ -f /etc/system-release ]] || grep -qi "rhel\|fedora\|centos\|alma\|rocky" /etc/os-release 2>/dev/null; then
+    OS_FAMILY="RHEL/Alma/Rocky/Fedora"
+fi
+
+# Check root privilege
 check_root() {
     if [[ $EUID -ne 0 ]]; then
         echo -e "${RED}[ERROR] Script ini harus dijalankan sebagai root atau dengan sudo!${NC}"
@@ -41,8 +50,9 @@ show_banner() {
     echo -e "${NC}"
     echo -e "${BLUE}======================================================${NC}"
     echo -e "  ${BOLD}MyBash: Hardening & Application Auto-Installer${NC}"
-    echo -e "  Author  : IsekaiID (https://github.com/diona-katzlein)"
-    echo -e "  Version : 1.0.0 - Mondstadt (MIT License)"
+    echo -e "  Author    : IsekaiID (https://github.com/diona-katzlein)"
+    echo -e "  Version   : 1.0.0 - Mondstadt (MIT License)"
+    echo -e "  System OS : ${GREEN}${OS_FAMILY}${NC}"
     echo -e "${BLUE}======================================================${NC}\n"
 }
 

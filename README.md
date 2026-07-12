@@ -1,7 +1,7 @@
 # ⚡ MyBash — Server Automation & Hardening Scripts
 
 <p align="center">
-  <img src="assets/mybash_banner.png" alt="MyBash Banner" width="100%">
+  <img src="assets/mybash_banner.png" alt="MyBash Banner" width="600">
 </p>
 
 [![Security Scan](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml/badge.svg)](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml)
