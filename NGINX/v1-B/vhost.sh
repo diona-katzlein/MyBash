@@ -36,7 +36,7 @@ tweak_nginx() {
     
     # Backup nginx.conf asli
     if [ -f /etc/nginx/nginx.conf ]; then
-        cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak.$(date +%F)
+        cp /etc/nginx/nginx.conf "/etc/nginx/nginx.conf.bak.$(date +%F)"
     fi
 
     # Buat file snippet untuk Gzip dan Security

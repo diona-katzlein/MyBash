@@ -136,7 +136,8 @@ check_port_available() {
 backup_config() {
     local config_file=$1
     if [[ -f "$config_file" ]]; then
-        local backup="${config_file}.backup.$(date +%Y%m%d_%H%M%S)"
+        local backup
+        backup="${config_file}.backup.$(date +%Y%m%d_%H%M%S)"
         cp "$config_file" "$backup"
         print_info "Backup dibuat: $backup"
     fi
@@ -1774,9 +1775,11 @@ apply_all_tweaks() {
 }
 
 configure_workers_auto() {
-    local cpu_cores=$(nproc)
+    local cpu_cores
+    cpu_cores=$(nproc)
     local worker_connections=1024
-    local total_ram=$(free -m | awk '/^Mem:/{print $2}')
+    local total_ram
+    total_ram=$(free -m | awk '/^Mem:/{print $2}')
 
     # Adjust worker_connections based on RAM
     [[ $total_ram -gt 4096 ]] && worker_connections=4096
@@ -1798,8 +1801,10 @@ configure_workers() {
     echo -e "${BOLD}Configure Worker Processes${NC}"
     print_separator
 
-    local cpu_cores=$(nproc)
-    local current_workers=$(grep "worker_processes" "$NGINX_CONF" | awk '{print $2}' | tr -d ';')
+    local cpu_cores
+    cpu_cores=$(nproc)
+    local current_workers
+    current_workers=$(grep "worker_processes" "$NGINX_CONF" | awk '{print $2}' | tr -d ';')
 
     print_info "CPU Cores: $cpu_cores"
     print_info "Current worker_processes: $current_workers"
@@ -2185,7 +2190,8 @@ list_vhosts_simple() {
     echo -e "\n${YELLOW}Available VHosts:${NC}"
     for f in "$NGINX_SITES_AVAILABLE"/*; do
         [[ -f "$f" ]] || continue
-        local name=$(basename "$f")
+        local name
+        name=$(basename "$f")
         if [[ -L "$NGINX_SITES_ENABLED/$name" ]]; then
             echo -e "  ${GREEN}● $name${NC} (aktif)"
         else
@@ -2205,7 +2211,8 @@ list_vhosts() {
 
     for f in "$NGINX_SITES_AVAILABLE"/*; do
         [[ -f "$f" ]] || continue
-        local name=$(basename "$f")
+        local name
+        name=$(basename "$f")
         local status="${RED}Nonaktif${NC}"
         local ssl_status="${RED}No SSL${NC}"
 
@@ -2319,8 +2326,10 @@ main_menu() {
 
         local nginx_status="${RED}Stopped${NC}"
         systemctl is-active nginx &>/dev/null && nginx_status="${GREEN}Running${NC}"
-        local nginx_version=$(nginx -v 2>&1 | grep -oP 'nginx/\K[0-9.]+')
-        local server_ip=$(get_server_ip)
+        local nginx_version
+        nginx_version=$(nginx -v 2>&1 | grep -oP 'nginx/\K[0-9.]+')
+        local server_ip
+        server_ip=$(get_server_ip)
 
         echo -e "  Server IP: ${CYAN}$server_ip${NC} | NGINX: ${CYAN}v$nginx_version${NC} | Status: $nginx_status"
         print_separator

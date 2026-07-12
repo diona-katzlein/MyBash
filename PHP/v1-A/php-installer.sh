@@ -178,7 +178,7 @@ select_php_versions() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
 
     for i in "${!PHP_VERSIONS[@]}"; do
         local ver="${PHP_VERSIONS[$i]}"
@@ -484,7 +484,7 @@ switch_php_cli_menu() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
     local active_ver
     active_ver=$(get_active_cli)
 
@@ -581,7 +581,7 @@ show_status() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
     local active_ver
     active_ver=$(get_active_cli)
 
@@ -647,7 +647,7 @@ manage_fpm_service() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
 
     if [[ ${#installed_versions[@]} -eq 0 ]]; then
         print_error "Tidak ada PHP yang terinstall!"
@@ -746,7 +746,7 @@ uninstall_php() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
 
     if [[ ${#installed_versions[@]} -eq 0 ]]; then
         print_error "Tidak ada PHP yang terinstall!"
@@ -827,7 +827,7 @@ install_additional_extensions() {
     echo ""
 
     local installed_versions
-    installed_versions=($(get_installed_versions))
+    read -r -a installed_versions < <(get_installed_versions)
 
     if [[ ${#installed_versions[@]} -eq 0 ]]; then
         print_error "Tidak ada PHP yang terinstall!"
@@ -909,7 +909,7 @@ main_menu() {
         local active_ver
         active_ver=$(get_active_cli)
         local installed_versions
-        installed_versions=($(get_installed_versions))
+        read -r -a installed_versions < <(get_installed_versions)
 
         print_separator
         echo -e "  ${WHITE}PHP CLI Aktif  :${NC} ${GREEN}PHP $active_ver${NC}"

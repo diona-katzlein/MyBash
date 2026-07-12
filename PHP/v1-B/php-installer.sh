@@ -115,7 +115,7 @@ switch_php_cli() {
     echo -e "${BLUE}=== Mengganti Versi PHP CLI Aktif ===${NC}"
     
     # Cari semua binary php yang terinstal
-    mapfile -t installed_phps < <(ls /usr/bin/ | grep -E '^php[0-9]+\.[0-9]+$' | sort -V)
+    mapfile -t installed_phps < <(find /usr/bin -maxdepth 1 -name "php[0-9]*.[0-9]*" | sed 's|.*/||' | sort -V)
     
     if [ ${#installed_phps[@]} -eq 0 ]; then
         echo -e "${RED}Tidak ada PHP CLI yang terinstal di sistem ini.${NC}"
