@@ -6,7 +6,7 @@
 
 [![Security Scan](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml/badge.svg)](https://github.com/diona-katzlein/MyBash/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-1.0.11--Mondstadt-orange.svg)](#)
+[![Version](https://img.shields.io/badge/Version-1.0.13--Mondstadt-orange.svg)](#)
 [![Bash Shell](https://img.shields.io/badge/Shell-Bash-4EAA25.svg?logo=gnu-bash&logoColor=white)](#)
 
 Kumpulan Script Bash interaktif untuk mempermudah instalasi aplikasi, pengelolaan web server, dan melakukan hardening keamanan tingkat tinggi pada server berbasis **Debian/Ubuntu** serta **RHEL/AlmaLinux/Rocky Linux/Fedora Server**.
@@ -59,6 +59,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/diona-katzlein/MyBa
 | 🔑 **SSH** | `v1-B` (Simple)   | [ssh-v1-b.sh](SSH/ssh-v1-b.sh) | SSH Hardening non-interaktif cepat & kuat. | [Docs 📖](SSH/README.md) |
 | ☁️ **CLOUDFLARE** | `v2.0` (A)      | [cf-manager.sh](CLOUDFLARE/CLOUDFLARE-MANAGER-A/cf-manager.sh) | DNS Records & Zero Trust Tunnel Manager. | [Docs 📖](CLOUDFLARE/CLOUDFLARE-MANAGER-A/README.md) |
 | ☁️ **CLOUDFLARE** | `v1-B` (Simple) | [cf-manager.sh](CLOUDFLARE/CLOUDFLARE-MANAGER-B/cf-manager.sh) | DNS & Zero Trust Tunnel simple manager. | [Docs 📖](CLOUDFLARE/CLOUDFLARE-MANAGER-B/README.md) |
+| 📦 **AIO**        | `v1` (Ubuntu)   | [install-v1.sh](AIO/Ubuntu/install-v1.sh) | One-click stack installer (Nginx, PHP, Node, Python, MySQL). | [Docs 📖](AIO/Ubuntu/README.md) |
 
 ---
 
@@ -75,5 +76,5 @@ Untuk memastikan keamanan server Anda, repositori ini menggunakan **GitHub Actio
 
 - **Author**: [IsekaiID](https://github.com/diona-katzlein)
 - **Base URL**: [https://github.com/diona-katzlein/MyBash](https://github.com/diona-katzlein/MyBash)
-- **Version**: `1.0.11 - Mondstadt`
+- **Version**: `1.0.13 - Mondstadt`
 - **Lisensi**: Open Source - [MIT License](LICENSE)
