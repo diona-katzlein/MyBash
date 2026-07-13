@@ -4,7 +4,7 @@
 # MyBash - Main Launcher & Remote Script Aggregator
 # Author  : IsekaiID (https://github.com/diona-katzlein)
 # Base URL: https://github.com/diona-katzlein/MyBash
-# Version : 1.0.13 - Mondstadt
+# Version : 1.0.14 - Mondstadt
 # License : MIT
 # ============================================================
 
@@ -51,7 +51,7 @@ show_banner() {
     echo -e "${BLUE}======================================================${NC}"
     echo -e "  ${BOLD}MyBash: Hardening & Application Auto-Installer${NC}"
     echo -e "  Author    : IsekaiID (https://github.com/diona-katzlein)"
-    echo -e "  Version   : 1.0.13 - Mondstadt (MIT License)"
+    echo -e "  Version   : 1.0.14 - Mondstadt (MIT License)"
     echo -e "  System OS : ${GREEN}${OS_FAMILY}${NC}"
     echo -e "${BLUE}======================================================${NC}\n"
 }
@@ -313,14 +313,19 @@ aio_menu() {
     while true; do
         show_banner
         echo -e "${BOLD}All-In-One (AIO) Stack Menu:${NC}"
-        echo -e " [1] Ubuntu Server stack (Nginx, Multi-PHP, Node.js, Python, MySQL, Git)"
+        echo -e " [1] AIO Stack Installer v1-A (Advanced: Custom Port/Timezone, Node 24)"
+        echo -e " [2] AIO Stack Installer v1-B (Simple: Non-interaktif, Node 22)"
         echo -e " [0] Kembali ke Menu Utama"
         echo
-        read -r -p "Pilihan Anda [0-1]: " choice
+        read -r -p "Pilihan Anda [0-2]: " choice
         
         case "$choice" in
             1)
-                run_script "AIO" "Ubuntu" "install-v1.sh"
+                run_script "AIO" "Ubuntu" "install-v1-A.sh"
+                break
+                ;;
+            2)
+                run_script "AIO" "Ubuntu" "install-v1-B.sh"
                 break
                 ;;
             0)

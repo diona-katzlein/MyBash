@@ -1,32 +1,44 @@
-# Ubuntu All-In-One Server Stack Installer (v1)
+# Ubuntu All-In-One Server Stack Installer
 
-Script *one-click* otomatisasi instalasi, konfigurasi, optimasi, dan hardening stack server lengkap untuk **Ubuntu Server/Desktop**.
+Kumpulan Script *one-click* otomatisasi instalasi, konfigurasi, optimasi, dan hardening stack server lengkap untuk **Ubuntu Server/Desktop**.
 
-## 🚀 Fitur Utama & Paket Terinstall
-1. **Nginx Web Server** (Stable Version) + Hardening security headers + Optimasi static file cache/Gzip.
-2. **PHP Multi-Version** (PHP 7.4 & PHP 8.3) lengkap dengan package pendukung (FPM, CLI, MySQL, XML, Curl, GD, Mbstring, Zip, Redis, Memcached, SQLite3, OPcache).
-3. **MySQL Server** + Tuning performa basic untuk database VPS.
-4. **Node.js 24 LTS & NPM** (melalui repo resmi NodeSource).
-5. **Python 3 & PIP** virtual environment tool.
+## ⚠️ Paket yang Terinstall
+1. **Nginx Web Server** (Stable) + Hardening security headers.
+2. **PHP Multi-Version** (PHP 7.4 & PHP 8.x FPM/CLI).
+3. **MySQL Server** + Tuning performa dasar.
+4. **Node.js LTS & NPM** (melalui repo resmi NodeSource).
+5. **Python 3 & PIP** virtual environment.
 6. **Git, Curl, Wget** utilitas development dasar.
-7. **UFW Firewall Security** (Auto whitelist port OpenSSH dan Nginx HTTP/HTTPS).
+7. **UFW Firewall Security**.
 
 ---
 
-## 🛠️ Cara Penggunaan
+## 🚀 Fitur & Pilihan Versi
 
-Anda dapat menjalankan script ini langsung menggunakan Main Launcher `main.sh` di root directory, atau secara standalone:
+### 1. AIO Stack Installer v1-A (Advanced)
+Script komprehensif modular yang mendukung set MySQL password dan timezone kustom secara dinamis lewat environment variables.
+* Default PHP 8.3.
+* Konfigurasi cache memcache/redis PHP.
+* Node.js v24.
 
+**Cara Penggunaan:**
 ```bash
-chmod +x install-v1.sh
-sudo ./install-v1.sh
+chmod +x install-v1-A.sh
+sudo ./install-v1-A.sh
+# Kustomisasi password MySQL & Timezone:
+sudo MYSQL_ROOT_PASSWORD='PasswordKuatAnda!123' TIMEZONE='Asia/Makassar' ./install-v1-A.sh
 ```
 
-### Opsi Kustomisasi Password MySQL & Timezone
-Secara bawaan, script menggunakan password MySQL `StrongRootPass123!` dan timezone `Asia/Jakarta`. Anda dapat mengubahnya langsung saat mengeksekusi script:
+### 2. AIO Stack Installer v1-B (Simple)
+Script cepat non-interaktif yang langsung berjalan mengamankan dan menyiapkan parameter inti stack.
+* Default PHP 8.3 (CLI) & 7.4.
+* Node.js v22 LTS (dengan fallback).
+* Hardening default site block Nginx & MySQL.
 
+**Cara Penggunaan:**
 ```bash
-sudo MYSQL_ROOT_PASSWORD='PasswordKuatAnda!123' TIMEZONE='Asia/Makassar' ./install-v1.sh
+chmod +x install-v1-B.sh
+sudo ./install-v1-B.sh
 ```
 
 ---
